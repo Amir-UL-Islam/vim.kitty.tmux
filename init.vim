@@ -37,6 +37,15 @@ autocmd FileType cpp nmap <buffer> <F5> :w<bar>!g++ -o %:r % && ./%:r<CR>
 autocmd FileType c,cpp set equalprg=indent\ 2>/dev/null\ -gnu;true
 
 "Custom Map
+"for Commmenting
+map ,c \cc
+"for Uncommentign
+map ,cu \cu
+"for NERDTree
+map ,t :NERDTree<CR>
+"for Personalization
+map ,o a<CR><ESC>ko 
+
 "Airline Settings
 "" unicode symbols
   let g:airline_left_sep = '»'
