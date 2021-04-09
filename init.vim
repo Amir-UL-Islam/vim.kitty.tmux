@@ -45,6 +45,8 @@ map ,cu \cu
 map ,t :NERDTree<CR>
 "for Personalization
 map ,o a<CR><ESC>ko 
+"for resizing the window
+map ,re :vertical resize
 
 "Airline Settings
 "" unicode symbols
