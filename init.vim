@@ -32,7 +32,7 @@ call plug#end()
 
 "Autocmd configurations
 map <F5> :w <CR> :!gcc % -o %< && ./%< <CR>
-autocmd filetype python nnoremap <F5> :w <bar> !python % <CR>
+autocmd filetype python nmap <F5> :w <bar> !python3 % <CR>
 autocmd FileType cpp nmap <buffer> <F5> :w<bar>!g++ -o %:r % && ./%:r<CR>
 autocmd FileType c,cpp set equalprg=indent\ 2>/dev/null\ -gnu;true
 
