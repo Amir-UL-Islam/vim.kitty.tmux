@@ -15,19 +15,21 @@ inoremap <S-Tab> <C-d>
 
 "See invisible characters
 "Setting background
-"highlight Normal ctermfg=white ctermbg=black
+highlight Normal ctermfg=white ctermbg=black
+
 "Setting plugs
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
-Plug 'valloric/youcompleteme'
 Plug 'raimondi/delimitmate'
 Plug 'ervandew/supertab'
 Plug 'vim-airline/vim-airline'
 Plug 'kien/ctrlp.vim'
 Plug 'morhetz/gruvbox'
+Plug 'yggdroot/indentline'
+Plug 'myusuf3/numbers.vim'
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 "Autocmd configurations
@@ -36,17 +38,30 @@ autocmd filetype python nmap <F5> :w <bar> !python3 % <CR>
 autocmd FileType cpp nmap <buffer> <F5> :w<bar>!g++ -o %:r % && ./%:r<CR>
 autocmd FileType c,cpp set equalprg=indent\ 2>/dev/null\ -gnu;true
 
-"Custom Map
+"Custom Mapping
 "for Commmenting
 map ,c \cc
+
 "for Uncommentign
-map ,cu \cu
+map ,uc \cu
+
 "for NERDTree
-map ,t :NERDTree<CR>
+map ,nt :NERDTree<CR>
+
 "for Personalization
 map ,o a<CR><ESC>ko 
+
 "for resizing the window
 map ,re :vertical resize
+
+"for clearing console
+map ,ar :!clear<CR><CR>
+
+"for Tagbar
+nmap <F8> :TagbarToggle<CR>
+
+"for changing the window
+map ,cw <C-w><C-w> 
 
 "Airline Settings
 "" unicode symbols
@@ -62,5 +77,10 @@ colorscheme gruvbox
 set termguicolors
 let g:gruvbox_termcolors=16
 
+"Statusber Settings
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+
+
+"for tabbar
+let g:numbers_exclude = ['tagbar', 'gundo', 'minibufexpl', 'nerdtree']
