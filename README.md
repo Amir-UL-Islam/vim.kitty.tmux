@@ -1,6 +1,6 @@
-# Vimrc
+# .Vimrc/init.vim
 ## Simple and Easy 🥇
-### vimrc for c/cpp, python only
+### vimrc for c/cpp, python, java programmer only
 
 `:source %`
  `:wp`
