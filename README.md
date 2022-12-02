@@ -1,4 +1,4 @@
-# .Vimrc/init.vim
+# .vimrc/init.vim
 ## Simple and Easy 🥇
 ### vimrc for c/cpp, python, java programmer only
 
