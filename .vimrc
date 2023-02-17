@@ -1,6 +1,15 @@
+" Options
 syntax on
-set wrap
+"set hidden
+set relativenumber
+set splitbelow splitright
+set title
+set ttimeoutlen=0
+
 set number
+set wrap
+set clipboard=unnamedplus
+set completeopt=noinsert,menuone,noselect
 set encoding=UTF-8
 set scrolloff=10
 set incsearch
@@ -13,12 +22,20 @@ set cursorline
 set ignorecase 
 set showmode
 set hlsearch
+set wildmenu
+filetype plugin indent on
 
-
+" Italics
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
 
 "Enable mouse click for nvim
 set mouse=a 
 set mouse=v
+
+" open new split panes to right and below
+set splitright
+set splitbelow
 
 "Fix cursor replacement after closing nvim
 "Shift + Tab does inverse tab
@@ -27,7 +44,6 @@ inoremap <S-Tab> <C-d>
 "See invisible characters
 "Setting background
 highlight Normal ctermfg=white ctermbg=black
-
 "Setting plugs
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
@@ -40,7 +56,6 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'yggdroot/indentline'
 Plug 'myusuf3/numbers.vim'
 Plug 'junegunn/fzf'
-Plug 'luochen1990/rainbow'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'sirver/ultisnips' |  Plug 'honza/vim-snippets'  
@@ -49,14 +64,75 @@ Plug 'sirver/ultisnips' |  Plug 'honza/vim-snippets'
 Plug 'ryanoasis/vim-devicons'
 Plug 'godlygeek/tabular'
 Plug 'majutsushi/tagbar'
+
+"spellcheck
+Plug 'dpelle/vim-languagetool'
+Plug 'jiangmiao/auto-pairs'
+Plug 'kien/rainbow_parentheses.vim'
 call plug#end()
+
+" Use a line cursor within insert mode and a block cursor everywhere else.
+" Reference chart of values:
+"   Ps = 0  -> blinking block.
+"   Ps = 1  -> blinking block (default).
+"   Ps = 2  -> steady block.
+"   Ps = 3  -> blinking underline.
+"   Ps = 4  -> steady underline.
+"   Ps = 5  -> blinking bar (xterm).
+"   Ps = 6  -> steady bar (xterm).
+
+"for Insert mode
+let &t_SI = "\e[5 q"
+
+" everything else
+let &t_EI = "\e[1 q"
+
+
+" rainbow options
+let g:rbpt_colorpairs = [
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ]
+
+let g:rbpt_max = 11
+let g:rbpt_loadcmd_toggle = 0
+
+"
+":RainbowParenthesesToggle       " Toggle it on/off
+":RainbowParenthesesLoadRound    " (), the default when toggling
+":RainbowParenthesesLoadSquare   " []
+":RainbowParenthesesLoadBraces   " {}
+":RainbowParenthesesLoadChevrons " <>
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+"languageTool
+let g:languagetool_jar='$HOME/LanguageTool-5.2/languagetool-commandline.jar'
 
 "Autocmd configurations
 autocmd filetype c map <F5> :w <CR> :!clear<CR><CR> :!gcc % -o %< && ./%< <CR>
+
+"for mamory lose in c
 autocmd filetype c map v<F5> :w <CR> :!clear<CR><CR> :!gcc % -o %< && valgrind ./%< <CR>
-autocmd filetype python map <F5> :w <CR> :!clear<CR><CR> :!python3 % <CR>
 autocmd filetype cpp map <F5> :w <CR> :!clear<CR><CR> :!make %< && ./%<<CR>
+
+autocmd filetype python map <F5> :w <CR> :!clear<CR><CR> :!python3 % <CR>
 autocmd filetype java map <F5> :w <CR> :!clear<CR><CR> :!java % <CR>
+
+" FOR UNIT TESTING
+map ,pn :! python -m unittest <CR>
 
 "Custom Mapping
 "for Commmenting
@@ -67,9 +143,6 @@ map ,uc \cu
 
 "for NERDTree
 map ,nt :NERDTree<CR>
-
-"for Personalization
-inoremap ,o <CR><CR><up><space><space><space> 
 
 "for resizing the window
 map ,re :vertical resize
@@ -88,13 +161,23 @@ map ,tf <C-S>>
 map ,tb <C-S><
 
 "for FZF
-map ,f :FZF<CR>
+map ,fz :FZF<CR>
 
 "for clearing search
 map ,cs :noh<CR>
 
+"for error messages
+map ,msg :messages <CR>
+
 "for snippets
 map ,eds :UltiSnipsEdit<CR>
+
+"maps the key in insert mode
+"for Personalization
+inoremap ,o <CR><CR><up><space><space><space> 
+
+"for buffer management
+nnoremap ,b :buffers<CR>:buffer <Space>
 
 "Theme Settings for Gruvbox
 "let g:gruvbox_italic=1
@@ -124,15 +207,11 @@ let g:numbers_exclude = ['tagbar', 'gundo', 'minibufexpl', 'nerdtree']
 let g:fzf_preview_window = 'right:50%'
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
 
-
-"for rainbow bracket
-let g:rainbow_active = 1
-
 "for fonts
 let g:airline_powerline_fonts = 1
 
 "for gitgutter
-set updatetime=100
+set updatetime=50
 
 "for snippets
 let g:UltiSnipsEditSplit="vertical"
@@ -178,6 +257,3 @@ ab :rose: 🌹
 ab :sad: ☹️
 ab :mad: 😤
 ab :purpel_heart: 💜
-
-" FOR UNIT TESTING
-map ,pn :! python -m unittest <CR>
