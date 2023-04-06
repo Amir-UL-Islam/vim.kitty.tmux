@@ -53,80 +53,27 @@ Plug 'raimondi/delimitmate'
 Plug 'ervandew/supertab'
 Plug 'vim-airline/vim-airline'
 Plug 'altercation/vim-colors-solarized'
-Plug 'yggdroot/indentline'
 Plug 'myusuf3/numbers.vim'
 Plug 'junegunn/fzf'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-
 Plug 'sirver/ultisnips' |  Plug 'honza/vim-snippets'  
 
 "For making the vim-devicons work, you should have a font file in /.local/share/fonts this location
 Plug 'ryanoasis/vim-devicons'
 Plug 'godlygeek/tabular'
 Plug 'majutsushi/tagbar'
+"For Indentation 
+Plug 'nathanaelkane/vim-indent-guides'
+
 
 "spellcheck
 Plug 'dpelle/vim-languagetool'
+
 Plug 'jiangmiao/auto-pairs'
+
 Plug 'kien/rainbow_parentheses.vim'
-
-
-"lsp
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-
-"AutoComplete
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
 call plug#end()
-
-
-"Lsp Config
-if executable('pylsp')
-    " pip install python-lsp-server
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pylsp',
-        \ 'cmd': {server_info->['pylsp']},
-        \ 'allowlist': ['python'],
-        \ })
-endif
-
-function! s:on_lsp_buffer_enabled() abort
-    setlocal omnifunc=lsp#complete
-    setlocal signcolumn=yes
-    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-    nmap <buffer> gd <plug>(lsp-definition)
-    nmap <buffer> gs <plug>(lsp-document-symbol-search)
-    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
-    nmap <buffer> gr <plug>(lsp-references)
-    nmap <buffer> gi <plug>(lsp-implementation)
-    nmap <buffer> gt <plug>(lsp-type-definition)
-    nmap <buffer> <leader>rn <plug>(lsp-rename)
-    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
-    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
-    nmap <buffer> K <plug>(lsp-hover)
-    nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
-    nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
-
-    let g:lsp_format_sync_timeout = 1000
-    autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
-    
-    " refer to doc to add more commands
-endfunction
-
-augroup lsp_install
-    au!
-    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
-    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
-
-
-
-
-
-
-
 
 " Use a line cursor within insert mode and a block cursor everywhere else.
 " Reference chart of values:
@@ -186,7 +133,9 @@ autocmd filetype c map v<F5> :w <CR> :!clear<CR><CR> :!gcc % -o %< && valgrind .
 autocmd filetype cpp map <F5> :w <CR> :!clear<CR><CR> :!make %< && ./%<<CR>
 
 autocmd filetype python map <F5> :w <CR> :!clear<CR><CR> :!python3 % <CR>
+
 autocmd filetype java map <F5> :w <CR> :!clear<CR><CR> :!java % <CR>
+autocmd filetype kotlin map<F5> :w <CR> :!clear<CR><CR> :!kotlinc % -include-runtime -d %:r.jar <CR><CR>:!java -jar %:r.jar <CR>
 
 " FOR UNIT TESTING
 map ,pn :! python -m unittest <CR>
@@ -218,7 +167,7 @@ map ,tf <C-S>>
 map ,tb <C-S><
 
 "for FZF
-map ,fz :FZF<CR>
+map ,fzf :FZF<CR>
 
 "for clearing search
 map ,cs :noh<CR>
@@ -229,12 +178,15 @@ map ,msg :messages <CR>
 "for snippets
 map ,eds :UltiSnipsEdit<CR>
 
+"for pasting
+xnoremap p "0p
+
 "maps the key in insert mode
 "for Personalization
 inoremap ,o <CR><CR><up><space><space><space> 
 
 "for buffer management
-nnoremap ,b :buffers<CR>:buffer <Space>
+nnoremap <F6> :buffers<CR>:buffer<Space>
 
 "Theme Settings for Gruvbox
 "let g:gruvbox_italic=1
