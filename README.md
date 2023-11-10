@@ -1,6 +1,8 @@
-# .vimrc/init.vim
+# This Repo Include Dev Env Combine with ```Neovim```, ```kitty```, ```Tmux```
 ## Simple and Easy 🥇
-### vimrc for c/cpp, python, java programmer only
+
+[VimAwesome](https://vimawesome.com/)
+[vim-plug](https://github.com/junegunn/vim-plug)
 
 `:source %`
  `:wp`
