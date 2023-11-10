@@ -1,4 +1,5 @@
-# This Repo Include Dev Env Combine with ```Neovim```, ```kitty```, ```Tmux```
+# This Repo Include Dev Env combined with 
+## ```Neovim```, ```kitty```, ```Tmux```
 ## Simple and Easy 🥇
 
 [VimAwesome](https://vimawesome.com/)
