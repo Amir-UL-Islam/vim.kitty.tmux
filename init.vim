@@ -7,7 +7,7 @@ set title
 set ttimeoutlen=0
 
 set number
-"set wrap
+set wrap!
 set clipboard=unnamedplus
 set completeopt=noinsert,menuone,noselect
 set encoding=UTF-8
@@ -23,11 +23,15 @@ set ignorecase
 set showmode
 set hlsearch
 set wildmenu
+
 filetype plugin indent on
 
 " Italics
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
+
+"Set in Vimrc
+set guifont=hack_nerd_font:h21
 
 "Enable mouse click for nvim
 set mouse=a 
@@ -44,6 +48,7 @@ inoremap <S-Tab> <C-d>
 "See invisible characters
 "Setting background
 highlight Normal ctermfg=white ctermbg=black
+
 "Setting plugs
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
@@ -58,8 +63,6 @@ Plug 'junegunn/fzf'
 Plug 'airblade/vim-gitgutter'
 
 "for formating
-Plug 'sbdchd/neoformat'
-
 
 "For making the vim-devicons work, you should have a font file in /.local/share/fonts this location
 "
@@ -68,8 +71,6 @@ Plug 'sbdchd/neoformat'
 "brew tap homebrew/cask-fonts
 "brew install --cask font-hack-nerd-font
 "
-"Set in Vimrc
-"set guifont=hack_nerd_font:h21
 
 
 Plug 'ryanoasis/vim-devicons'
@@ -77,7 +78,9 @@ Plug 'godlygeek/tabular'
 Plug 'majutsushi/tagbar'
 
 "spellcheck
-Plug 'dpelle/vim-languagetool'
+"Plug 'dpelle/vim-languagetool'
+
+"Auto Pair Brackets
 Plug 'jiangmiao/auto-pairs'
 
 "Brackets
@@ -85,7 +88,15 @@ Plug 'kien/rainbow_parentheses.vim'
 
 "For Indentation 
 Plug 'yggdroot/indentline'
-Plug 'christoomey/vim-tmux-navigator'
+
+
+" For AutoComplete
+" To install mac use the following commands
+"1. brew install cmake python mono go nodejs
+" For Java Support 
+"1. brew install java
+"2. sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+Plug 'valloric/youcompleteme'
 
 call plug#end()
 
@@ -154,10 +165,8 @@ autocmd filetype python map ,r :w <CR> :!clear<CR><CR> :!python3 % <CR>
 autocmd filetype java map ,r :w <CR> :!clear<CR><CR> :!java % <CR>
 
 "for formatting
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
+" Define a mapping for Control + Command + L
+
 
 " FOR UNIT TESTING
 map ,pn :! python -m unittest <CR>
@@ -173,7 +182,7 @@ map ,uc \cu
 map ,nt :NERDTree<CR>
 
 "for resizing the window
-map ,re :vertical resize
+map ,re :vertical resize 
 
 "for clearing console
 map ,ar :!clear<CR><CR>
@@ -282,4 +291,3 @@ ab :rose: 🌹
 ab :sad: ☹️
 ab :mad: 😤
 ab :purpel_heart: 💜
-
