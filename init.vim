@@ -96,6 +96,8 @@ Plug 'yggdroot/indentline'
 " For Java Support 
 "1. brew install java
 "2. sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+" And run this command
+" pip3 install pynvim
 Plug 'valloric/youcompleteme'
 
 call plug#end()
