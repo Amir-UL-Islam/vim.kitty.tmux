@@ -138,6 +138,9 @@ let g:rbpt_colorpairs = [
 let g:rbpt_max = 11
 let g:rbpt_loadcmd_toggle = 0
 
+"Make Available Hidden File in NerdTree
+let NERDTreeShowHidden=1
+
 "
 ":RainbowParenthesesToggle       " Toggle it on/off
 ":RainbowParenthesesLoadRound    " (), the default when toggling
