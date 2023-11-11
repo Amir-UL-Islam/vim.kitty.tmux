@@ -34,8 +34,8 @@ let &t_ZR="\e[23m"
 set guifont=hack_nerd_font:h21
 
 "Enable mouse click for nvim
-set mouse=a 
-set mouse=v
+" Setting the mouse for Normal Mode only
+set mouse=n 
 
 " open new split panes to right and below
 set splitright
