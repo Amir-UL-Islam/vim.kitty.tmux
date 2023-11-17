@@ -30,17 +30,11 @@ filetype plugin indent on
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
 
-"Set in Vimrc
 set guifont=hack_nerd_font:h21
 
 "Enable mouse click for nvim
 " Setting the mouse for Normal Mode only
 set mouse=a
-
-" Enable mouse support in the terminal window
-"au TermOpen * setlocal mouse=a
-
-
 
 " open new split panes to right and below
 set splitright
@@ -60,14 +54,12 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 Plug 'raimondi/delimitmate'
-Plug 'ervandew/supertab'
+"Plug 'ervandew/supertab'
 Plug 'vim-airline/vim-airline'
 Plug 'altercation/vim-colors-solarized'
 Plug 'myusuf3/numbers.vim'
 Plug 'junegunn/fzf'
 Plug 'airblade/vim-gitgutter'
-
-"for formating
 
 "For making the vim-devicons work, you should have a font file in /.local/share/fonts this location
 "
@@ -76,8 +68,6 @@ Plug 'airblade/vim-gitgutter'
 "brew tap homebrew/cask-fonts
 "brew install --cask font-hack-nerd-font
 "
-
-
 Plug 'ryanoasis/vim-devicons'
 Plug 'godlygeek/tabular'
 Plug 'majutsushi/tagbar'
@@ -174,9 +164,6 @@ autocmd filetype cpp map ,r :w <CR> :!clear<CR><CR> :term make %< && ./%<<CR>
 autocmd filetype python map ,r :w <CR> :!clear<CR><CR> :term python3 % <CR>
 autocmd filetype java map ,r :w <CR> :!clear<CR><CR> :term java % <CR>
 
-"for formatting
-" Define a mapping for Control + Command + L
-
 
 " FOR UNIT TESTING
 map ,pn :! python -m unittest <CR>
@@ -201,14 +188,14 @@ map ,ar :!clear<CR><CR>
 map <F8> :TagbarToggle<CR>
 
 "for changing the window
-map ,ww <C-w><C-w> 
+map ,w <C-w><C-w> 
 
 "for tabbing
 map ,tf <C-S>>
 map ,tb <C-S><
 
 "for FZF
-map ,fz :FZF<CR>
+map ,s :FZF<CR>
 
 "for clearing search
 map ,cs :noh<CR>
@@ -217,7 +204,7 @@ map ,cs :noh<CR>
 map ,msg :messages <CR>
 
 "for snippets
-map ,eds :UltiSnipsEdit<CR>
+map ,es :UltiSnipsEdit<CR>
 
 "maps the key in insert mode
 "for Personalization
@@ -229,8 +216,6 @@ nnoremap ,b :buffers<CR>:buffer <Space>
 "for pasting the same thing again and again
 xnoremap p "0p
 
-"For Juping around Lines
-
 
 "For solarized.vim
 let g:solarized_termcolors=256
@@ -241,7 +226,6 @@ colorscheme solarized
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#enabled = 1
-
 
 "for tabbar
 let g:numbers_exclude = ['tagbar', 'gundo', 'minibufexpl', 'nerdtree']
