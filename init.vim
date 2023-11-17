@@ -35,7 +35,12 @@ set guifont=hack_nerd_font:h21
 
 "Enable mouse click for nvim
 " Setting the mouse for Normal Mode only
-set mouse=n 
+set mouse=a
+
+" Enable mouse support in the terminal window
+"au TermOpen * setlocal mouse=a
+
+
 
 " open new split panes to right and below
 set splitright
@@ -160,14 +165,14 @@ au Syntax * RainbowParenthesesLoadBraces
 "let g:languagetool_jar='$HOME/LanguageTool-5.2/languagetool-commandline.jar'
 
 "Autocmd configurations
-autocmd filetype c map ,r :w <CR> :!clear<CR><CR> :!gcc % -o %< && ./%< <CR>
+autocmd filetype c map ,r :w <CR> :!clear<CR><CR> :term gcc % -o %< && ./%< <CR>
 
 "for mamory lose in c
-autocmd filetype c map v,r :w <CR> :!clear<CR><CR> :!gcc % -o %< && valgrind ./%< <CR>
-autocmd filetype cpp map ,r :w <CR> :!clear<CR><CR> :!make %< && ./%<<CR>
+autocmd filetype c map v,r :w <CR> :!clear<CR><CR> :term gcc % -o %< && valgrind ./%< <CR>
+autocmd filetype cpp map ,r :w <CR> :!clear<CR><CR> :term make %< && ./%<<CR>
 
-autocmd filetype python map ,r :w <CR> :!clear<CR><CR> :!python3 % <CR>
-autocmd filetype java map ,r :w <CR> :!clear<CR><CR> :!java % <CR>
+autocmd filetype python map ,r :w <CR> :!clear<CR><CR> :term python3 % <CR>
+autocmd filetype java map ,r :w <CR> :!clear<CR><CR> :term java % <CR>
 
 "for formatting
 " Define a mapping for Control + Command + L
