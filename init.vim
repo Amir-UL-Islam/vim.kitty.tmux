@@ -54,7 +54,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 Plug 'raimondi/delimitmate'
-"Plug 'ervandew/supertab'
 Plug 'vim-airline/vim-airline'
 Plug 'altercation/vim-colors-solarized'
 Plug 'myusuf3/numbers.vim'
@@ -67,9 +66,10 @@ Plug 'airblade/vim-gitgutter'
 "Run These Commands
 "brew tap homebrew/cask-fonts
 "brew install --cask font-hack-nerd-font
-"
 Plug 'ryanoasis/vim-devicons'
+
 Plug 'godlygeek/tabular'
+
 Plug 'majutsushi/tagbar'
 
 "spellcheck
@@ -84,18 +84,11 @@ Plug 'kien/rainbow_parentheses.vim'
 "For Indentation 
 Plug 'yggdroot/indentline'
 
-
-" For AutoComplete
-" To install mac use the following commands
-"1. brew install cmake python mono go nodejs
-" For Java Support 
-"1. brew install java
-"2. sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
-" And run this command
-" pip3 install pynvim
-Plug 'valloric/youcompleteme'
+" For AutoComplete with COC
+Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'npm ci' }
 
 call plug#end()
+
 
 
 " Use a line cursor within insert mode and a block cursor everywhere else.
@@ -164,6 +157,9 @@ autocmd filetype cpp map ,r :w <CR> :!clear<CR><CR> :term make %< && ./%<<CR>
 autocmd filetype python map ,r :w <CR> :!clear<CR><CR> :term python3 % <CR>
 autocmd filetype java map ,r :w <CR> :!clear<CR><CR> :term java % <CR>
 
+
+"coc setups
+source ~/vim.kitty.tmux/coc.vim
 
 " FOR UNIT TESTING
 map ,pn :! python -m unittest <CR>
