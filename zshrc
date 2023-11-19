@@ -19,7 +19,7 @@ fi
 
 #Auto Start Tmux
 case $- in *i*)
-    [ -z "$TMUX" ] && exec tmux
+    [ -z "$TMUX" ] && exec tmux attach
 esac
 
 

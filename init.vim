@@ -1,4 +1,5 @@
 " Options
+let mapleader = " "
 syntax on
 "set hidden
 set relativenumber
@@ -185,6 +186,16 @@ map <F8> :TagbarToggle<CR>
 
 "for changing the window
 map ,w <C-w><C-w> 
+
+"buffer switch
+map gn :bnext<cr>
+map gp :bprevious<cr>
+map gd :bdelete<cr>  
+
+" I personally use <leader> 
+map <leader>n :bnext<cr>
+map <leader>p :bprevious<cr>
+map <leader>d :bdelete<cr>
 
 "for tabbing
 map ,tf <C-S>>
