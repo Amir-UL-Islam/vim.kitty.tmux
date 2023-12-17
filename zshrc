@@ -8,6 +8,9 @@ alias ls="lsd"
 alias vi="nvim"
 export PS1="%~ %*:👀>_"
 
+#login to stage
+alias stage="exec sshpass -p$stageserver ssh $stageaddress"
+
 # for Fast loading
 if [ $commands[kubectl] ]; then
   kubectl() {
@@ -19,7 +22,7 @@ fi
 
 #Auto Start Tmux
 case $- in *i*)
-    [ -z "$TMUX" ] && exec tmux attach
+    [ -z "$TMUX" ] && exec tmux
 esac
 
 
