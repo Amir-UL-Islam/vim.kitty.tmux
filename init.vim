@@ -9,6 +9,7 @@ set ttimeoutlen=0
 
 set number
 set wrap!
+" For Copping between System and Vim
 set clipboard=unnamedplus
 set completeopt=noinsert,menuone,noselect
 set encoding=UTF-8
@@ -160,7 +161,7 @@ autocmd filetype java map ,r :w <CR> :!clear<CR><CR> :term java % <CR>
 
 
 "coc setups
-source ~/vim.kitty.tmux/coc.vim
+source ~/vImtk/coc.vim
 
 " FOR UNIT TESTING
 map ,pn :! python -m unittest <CR>

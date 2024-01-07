@@ -26,4 +26,8 @@ case $- in *i*)
 esac
 
 
+# For Markdown View on Terminal
+mdp() {
+    pandoc -t plain `find . -maxdepth 1 -iname "${1:-readme.md}"` | less
+}
 
