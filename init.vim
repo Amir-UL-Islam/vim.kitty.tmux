@@ -157,7 +157,12 @@ autocmd filetype c map v,r :w <CR> :!clear<CR><CR> :term gcc % -o %< && valgrind
 autocmd filetype cpp map ,r :w <CR> :!clear<CR><CR> :term make %< && ./%<<CR>
 
 autocmd filetype python map ,r :w <CR> :!clear<CR><CR> :term python3 % <CR>
-autocmd filetype java map ,r :w <CR> :!clear<CR><CR> :term java % <CR>
+
+"For java 11
+"autocmd filetype java map ,r :w <CR> :!clear<CR><CR> :term java % <CR>
+
+" For java 8
+autocmd filetype java map ,r :w <CR> :!clear<CR><CR> :term javac % && java %:r <CR>
 
 
 "coc setups
