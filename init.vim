@@ -1,5 +1,5 @@
 " Options
-let mapleader = " "
+let mapleader = ","
 syntax on
 "set hidden
 set relativenumber
@@ -197,11 +197,22 @@ map ,w <C-w><C-w>
 map gn :bnext<cr>
 map gp :bprevious<cr>
 map gd :bdelete<cr>  
+"Clear Buffer Except this
+map cb :w <bar> %bd <bar> e# <bar> bd# <CR>
+
+
+"Folding
+map ff zf
+map fo zo
+map fc zc
+map fa za
+
 
 " I personally use <leader> 
 map <leader>n :bnext<cr>
 map <leader>p :bprevious<cr>
 map <leader>d :bdelete<cr>
+
 
 "for tabbing
 map ,tf <C-S>>
