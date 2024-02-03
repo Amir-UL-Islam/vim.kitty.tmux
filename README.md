@@ -9,3 +9,6 @@
  `:wp`
  `:vi .vimrc`
  `:PlugInstall`
+
+Usefull Commands
+- ```ln -s [source] [/path/filename]```
