@@ -1,5 +1,5 @@
 " Options
-let mapleader = ","
+let mapleader = ";"
 syntax on
 "set hidden
 set relativenumber
@@ -152,7 +152,7 @@ au Syntax * RainbowParenthesesLoadBraces
 "Autocmd configurations
 autocmd filetype c map ,r :w <CR> :!clear<CR><CR> :term gcc % -o %< && ./%< <CR>
 
-"for mamory lose in c
+"for memory lose in c
 autocmd filetype c map v,r :w <CR> :!clear<CR><CR> :term gcc % -o %< && valgrind ./%< <CR>
 autocmd filetype cpp map ,r :w <CR> :!clear<CR><CR> :term make %< && ./%<<CR>
 
@@ -166,7 +166,7 @@ autocmd filetype java map ,r :w <CR> :!clear<CR><CR> :term javac % && java %:r <
 
 
 "coc setups
-source ~/vImtk/coc.vim
+source ~/dot-config-files/coc.vim
 
 " FOR UNIT TESTING
 map ,pn :! python -m unittest <CR>
@@ -175,8 +175,8 @@ map ,pn :! python -m unittest <CR>
 "for Commmenting
 map ,cc \cc
 
-"for Uncommentign
-map ,uc \cu
+"for Unconsenting
+map ,cu \cu
 
 "for NERDTree
 map ,nt :NERDTree<CR>
