@@ -152,6 +152,9 @@ au Syntax * RainbowParenthesesLoadBraces
 "Autocmd configurations
 autocmd filetype c map ,r :w <CR> :!clear<CR><CR> :term gcc % -o %< && ./%< <CR>
 
+"Configuration for Haskell
+autocmd filetype haskell map ,r :w <CR> :!clear<CR><CR> :term ghc % && ./%< <CR>
+
 "for memory lose in c
 autocmd filetype c map v,r :w <CR> :!clear<CR><CR> :term gcc % -o %< && valgrind ./%< <CR>
 autocmd filetype cpp map ,r :w <CR> :!clear<CR><CR> :term make %< && ./%<<CR>
@@ -164,6 +167,9 @@ autocmd filetype python map ,r :w <CR> :!clear<CR><CR> :term python3 % <CR>
 " For java 8
 autocmd filetype java map ,r :w <CR> :!clear<CR><CR> :term javac % && java %:r <CR>
 
+nnoremap <Leader>ht :GhcModType<cr>
+nnoremap <Leader>htc :GhcModTypeClear<cr>
+autocmd FileType haskell nnoremap <buffer> <leader>? :call ale#cursor#ShowCursorDetail()<cr>
 
 "coc setups
 source ~/dot-config-files/coc.vim
