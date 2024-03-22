@@ -69,3 +69,5 @@ mdp() {
     pandoc -t plain `find . -maxdepth 1 -iname "${1:-readme.md}"` | less
 }
 
+# for Haskell
+[ -f "/Users/amir/.ghcup/env" ] && . "/Users/amir/.ghcup/env" # ghcup-env
