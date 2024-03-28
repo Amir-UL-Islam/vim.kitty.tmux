@@ -20,13 +20,13 @@ export PATH="/usr/local/opt/node@14/bin:$PATH"
 #For Debuggin Openmrs
 #export MAVEN_OPTS="-Xmx2048m -Xms2048m -XX:PermSize=512m -XX:MaxPermSize=1024m -Xdebug -Xrunjdwp:transport=dt_socket,address=51696,suspend=n,server=y"
 
-export MAVEN_OPTS="-Xmx1024m -Xms1024m -XX:PermSize=256m -XX:MaxPermSize=512m"
+#export MAVEN_OPTS="-Xmx1024m -Xms1024m -XX:PermSize=256m -XX:MaxPermSize=512m"
 
-# Debug configuration for the first application
-export MAVEN_OPTS_DEBUG_1="$MAVEN_OPTS -Xdebug -Xrunjdwp:transport=dt_socket,address=51696,suspend=n,server=y"
+## Debug configuration for the first application
+#export MAVEN_OPTS_DEBUG_1="$MAVEN_OPTS -Xdebug -Xrunjdwp:transport=dt_socket,address=51696,suspend=n,server=y"
 
-# Debug configuration for the second application
-export MAVEN_OPTS_DEBUG_2="$MAVEN_OPTS -Xdebug -Xrunjdwp:transport=dt_socket,address=51697,suspend=n,server=y"
+## Debug configuration for the second application
+#export MAVEN_OPTS_DEBUG_2="$MAVEN_OPTS -Xdebug -Xrunjdwp:transport=dt_socket,address=51697,suspend=n,server=y"
 
 
 
@@ -58,10 +58,16 @@ if [ $commands[kubectl] ]; then
   }
 fi
 
-#Auto Start Tmux
-case $- in *i*)
-    [ -z "$TMUX" ] && exec tmux
-esac
+# Auto Start Tmux
+if [ -z "$TMUX" ]; then
+    # Start tmux if not already inside a tmux session
+    if tmux has-session 2>/dev/null; then # 2>/dev/null part redirects any error messages (if no session exists) to /dev/null, effectively suppressing them.
+        exec tmux attach
+    else
+        exec tmux
+    fi
+fi
+
 
 
 # For Markdown View on Terminal
