@@ -6,9 +6,10 @@ set relativenumber
 set splitbelow splitright
 set title
 set ttimeoutlen=0
+set nowrap
 
 set number
-set wrap!
+"set wrap!
 " For Copping between System and Vim
 set clipboard=unnamedplus
 set completeopt=noinsert,menuone,noselect
@@ -160,6 +161,8 @@ autocmd filetype c map v,r :w <CR> :!clear<CR><CR> :term gcc % -o %< && valgrind
 autocmd filetype cpp map ,r :w <CR> :!clear<CR><CR> :term make %< && ./%<<CR>
 
 autocmd filetype python map ,r :w <CR> :!clear<CR><CR> :term python3 % <CR>
+autocmd BufRead, *.rb nmap ,r :silent !{ruby %}<cr>
+
 
 "For java 11
 "autocmd filetype java map ,r :w <CR> :!clear<CR><CR> :term java % <CR>
@@ -212,8 +215,13 @@ map <leader>p :bprevious<cr>
 "Clear Buffer Except this
 map cb :w <bar> %bd <bar> e# <bar> bd# <CR>
 
+" Code Format
+map <leader>f :Format<cr>
 
-"Folding
+
+
+
+" Folding
 map ff zf
 map fo zo
 map fc zc
@@ -257,6 +265,7 @@ colorscheme solarized
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':p:t'
 
 "for tabbar
 let g:numbers_exclude = ['tagbar', 'gundo', 'minibufexpl', 'nerdtree']
@@ -268,6 +277,7 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
 
 "for fonts
 let g:airline_powerline_fonts = 1
+
 
 "for gitgutter
 set updatetime=50

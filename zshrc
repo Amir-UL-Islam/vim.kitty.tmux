@@ -10,17 +10,26 @@ export PATH=${PATH}:/usr/bin/python3
 export PATH=${PATH}:/usr/bin/ssh-keygen
 export PATH=/usr/local/bin:$PATH
 export PATH=${PATH}:/usr/bin/sqlite3
+export PATH=${PATH}:/usr/local/Cellar/mysql@8.0/8.0.36_1/bin
+export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
+export CPPFLAGS="-I/usr/local/opt/openjdk@17/include"
+
 #export PATH="/usr/local/opt/openjdk@8/bin:$PATH"
 #export PATH="/usr/local/Cellar/openjdk@8/1.8.0-392/libexec/openjdk.jdk/Contents/Home:$PATH"
-export JAVA_HOME="/usr/local/Cellar/openjdk@8/1.8.0-392/libexec/openjdk.jdk/Contents/Home"
+#
+
+
+# For JAVA_HOME 8 uncomment this line
+#export JAVA_HOME="/usr/local/Cellar/openjdk@8/1.8.0-392/libexec/openjdk.jdk/Contents/Home"
+export JAVA_HOME="/usr/local/Cellar/openjdk@17/17.0.11/libexec/openjdk.jdk/Contents/Home"
 
 #If you need to have node@14 first in your PATH, run:
 export PATH="/usr/local/opt/node@14/bin:$PATH"
 
 #For Debuggin Openmrs
-#export MAVEN_OPTS="-Xmx2048m -Xms2048m -XX:PermSize=512m -XX:MaxPermSize=1024m -Xdebug -Xrunjdwp:transport=dt_socket,address=51696,suspend=n,server=y"
+export MAVEN_OPTS="-Xmx2048m -Xms2048m -XX:PermSize=512m -XX:MaxPermSize=1024m -Xdebug -Xrunjdwp:transport=dt_socket,address=51696,suspend=n,server=y"
 
-#export MAVEN_OPTS="-Xmx1024m -Xms1024m -XX:PermSize=256m -XX:MaxPermSize=512m"
+#export MAVEN_OPTS="-Xmx2048m -Xms2048m -XX:PermSize=512m -XX:MaxPermSize=1024m "
 
 ## Debug configuration for the first application
 #export MAVEN_OPTS_DEBUG_1="$MAVEN_OPTS -Xdebug -Xrunjdwp:transport=dt_socket,address=51696,suspend=n,server=y"
@@ -77,3 +86,8 @@ mdp() {
 
 # for Haskell
 [ -f "/Users/amir/.ghcup/env" ] && . "/Users/amir/.ghcup/env" # ghcup-env
+
+
+if [ -z "$INTELLIJ_ENVIRONMENT_READER" ]; then
+  export ZSH_TMUX_AUTOSTART=true
+fi
