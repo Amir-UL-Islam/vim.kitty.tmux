@@ -59,7 +59,6 @@ Plug 'scrooloose/syntastic'
 Plug 'raimondi/delimitmate'
 Plug 'vim-airline/vim-airline'
 Plug 'altercation/vim-colors-solarized'
-Plug 'myusuf3/numbers.vim'
 Plug 'junegunn/fzf'
 Plug 'airblade/vim-gitgutter'
 
@@ -89,6 +88,11 @@ Plug 'yggdroot/indentline'
 
 " For AutoComplete with COC
 Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'npm ci' }
+
+Plug 'mechatroner/rainbow_csv'
+
+Plug 'fatih/vim-go'
+
 
 call plug#end()
 
@@ -169,6 +173,9 @@ autocmd BufRead, *.rb nmap ,r :silent !{ruby %}<cr>
 
 " For java 8
 autocmd filetype java map ,r :w <CR> :!clear<CR><CR> :term javac % && java %:r <CR>
+autocmd filetype go map ,r :w <CR> :!clear<CR><CR> :term go run % <CR>
+
+autocmd filetype markdown map ,r :w <CR> :!clear<CR><CR> :term pandoc -t plain `find . -maxdepth 1 -iname "${1:-readme.md}"` % <CR>
 
 nnoremap <Leader>ht :GhcModType<cr>
 nnoremap <Leader>htc :GhcModTypeClear<cr>
@@ -182,10 +189,10 @@ map ,pn :! python -m unittest <CR>
 
 "Custom Mapping
 "for Commmenting
-map ,cc \cc
+map <leader>cc \cc
 
 "for Unconsenting
-map ,cu \cu
+map <leader>cu \cu
 
 "for NERDTree
 map ,nt :NERDTree<CR>
@@ -230,8 +237,8 @@ map fa za
 
 
 "for tabbing
-map ,tf <C-S>>
-map ,tb <C-S><
+map <leader>tff <C-S>>
+map <leader>tbb <C-S><
 
 "for FZF
 map ,s :FZF<CR>
@@ -243,7 +250,7 @@ map ,cs :noh<CR>
 map ,msg :messages <CR>
 
 "for snippets
-map ,es :UltiSnipsEdit<CR>
+map ,us :UltiSnipsEdit<CR>
 
 "maps the key in insert mode
 "for Personalization
