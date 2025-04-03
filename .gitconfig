@@ -1,0 +1,17 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Amir
+	email = 61427423+Amir-UL-Islam@users.noreply.github.com
+[core]
+	autocrlf = input
+	fsmonitor = true
+	untrackedcache = true
+[alias]
+	logs = log --oneline --decorate
+	logss = log --pretty=format:'%C(yellow)%h%Creset - %C(green)%an%Creset, %ar : %s'
+	graph = log --oneline --graph --decorate 
+	difff = diff --word-diff
+
+[grep]
+	lineNumber =  true
+	patternType = perl
