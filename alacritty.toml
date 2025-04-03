@@ -1,0 +1,37 @@
+[window]
+padding.x = 7 
+padding.y = 5 
+
+decorations = "Buttonless"
+
+opacity = 0.7
+blur = true
+
+option_as_alt = "Both"
+
+[font]
+size = 24
+
+# Set the font family to Hack Nerd Font for icon rendering
+normal.family = "Hack Nerd Font"
+normal.style = "Regular"
+
+bold.family = "Hack Nerd Font"
+bold.style = "Bold"
+
+italic.family = "Hack Nerd Font"
+italic.style = "Italic"
+
+bold_italic.family = "Hack Nerd Font"
+bold_italic.style = "Bold Italic"
+
+[window.dimensions]
+columns = 100
+lines = 50
+
+
+[keyboard]
+bindings = [
+  { key = "Right", mods = "Alt", chars = "\u001BF" },
+  { key = "Left",  mods = "Alt", chars = "\u001BB" },
+]

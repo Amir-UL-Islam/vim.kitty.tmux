@@ -72,10 +72,6 @@ Plug 'ryanoasis/vim-devicons'
 
 Plug 'godlygeek/tabular'
 
-Plug 'majutsushi/tagbar'
-
-"spellcheck
-"Plug 'dpelle/vim-languagetool'
 
 "Auto Pair Brackets
 Plug 'jiangmiao/auto-pairs'
@@ -88,11 +84,6 @@ Plug 'yggdroot/indentline'
 
 " For AutoComplete with COC
 Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'npm ci' }
-
-Plug 'mechatroner/rainbow_csv'
-
-Plug 'fatih/vim-go'
-
 
 call plug#end()
 
@@ -182,7 +173,7 @@ nnoremap <Leader>htc :GhcModTypeClear<cr>
 autocmd FileType haskell nnoremap <buffer> <leader>? :call ale#cursor#ShowCursorDetail()<cr>
 
 "coc setups
-source ~/dot-config-files/coc.vim
+source ~/vim.kitty.tmux/coc.vim
 
 " FOR UNIT TESTING
 map ,pn :! python -m unittest <CR>
@@ -236,9 +227,6 @@ map fa za
 
 
 
-"for tabbing
-map <leader>tff <C-S>>
-map <leader>tbb <C-S><
 
 "for FZF
 map ,s :FZF<CR>
@@ -266,7 +254,7 @@ xnoremap p "0p
 "For solarized.vim
 let g:solarized_termcolors=256
 set background=dark
-colorscheme solarized
+"colorscheme solarized
 
 "Statusber Settings
 let g:airline#extensions#tabline#left_sep = ' '
