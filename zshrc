@@ -47,8 +47,16 @@ export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
 #export LDFLAGS="-L/usr/local/opt/node@14/lib"
 #export CPPFLAGS="-I/usr/local/opt/node@14/include"
 
+function parse_git_branch() {
+    git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1]/p'
+}
 
-
+COLOR_DEF=$'%F{yellow}'
+COLOR_TIME=$'%f'
+COLOR_DIR=$'%F{197}'
+COLOR_GIT=$'%F{39}'
+setopt PROMPT_SUBST
+export PROMPT='${COLOR_DIR}%~ ${COLOR_TIME}%@:🌱 ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF}❯ '
 
 alias rm='rm -i'
 alias cp='cp -i'
@@ -56,7 +64,6 @@ alias mv='mv -i'
 
 alias ls="lsd"
 alias vi="nvim"
-export PS1="%~ %*:🌱%F{yellow}❯ "
 
 
 alias fzf="fzf -m --preview=\"bat --color=always {}\""
