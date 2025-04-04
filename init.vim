@@ -21,7 +21,6 @@ set autoindent
 set softtabstop=4
 set shiftwidth=4
 set tabstop=4
-set cursorline   
 set ignorecase 
 set showmode
 set hlsearch
@@ -33,7 +32,7 @@ filetype plugin indent on
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
 
-set guifont=hack_nerd_font:h21
+set guifont=JetBrains\ Mono:h16
 
 "Enable mouse click for nvim
 " Setting the mouse for Normal Mode only
@@ -47,18 +46,13 @@ set splitbelow
 "Shift + Tab does inverse tab
 inoremap <S-Tab> <C-d>
 
-"See invisible characters
-"Setting background
-highlight Normal ctermfg=white ctermbg=black
 
 "Setting plugs
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/syntastic'
 Plug 'raimondi/delimitmate'
 Plug 'vim-airline/vim-airline'
-Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/fzf'
 Plug 'airblade/vim-gitgutter'
 
@@ -69,9 +63,6 @@ Plug 'airblade/vim-gitgutter'
 "brew tap homebrew/cask-fonts
 "brew install --cask font-hack-nerd-font
 Plug 'ryanoasis/vim-devicons'
-
-Plug 'godlygeek/tabular'
-
 
 "Auto Pair Brackets
 Plug 'jiangmiao/auto-pairs'
@@ -85,7 +76,12 @@ Plug 'yggdroot/indentline'
 " For AutoComplete with COC
 Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'npm ci' }
 
+Plug 'doums/darcula'
 call plug#end()
+
+"coc setups
+source ~/vim.kitty.tmux/coc.vim
+
 
 
 
@@ -172,9 +168,6 @@ nnoremap <Leader>ht :GhcModType<cr>
 nnoremap <Leader>htc :GhcModTypeClear<cr>
 autocmd FileType haskell nnoremap <buffer> <leader>? :call ale#cursor#ShowCursorDetail()<cr>
 
-"coc setups
-source ~/vim.kitty.tmux/coc.vim
-
 " FOR UNIT TESTING
 map ,pn :! python -m unittest <CR>
 
@@ -251,10 +244,10 @@ nnoremap ,b :buffers<CR>:buffer <Space>
 xnoremap p "0p
 
 
-"For solarized.vim
-let g:solarized_termcolors=256
+""For darcula.vim 
+"let g:solarized_termcolors=256
 set background=dark
-"colorscheme solarized
+colorscheme darcula
 
 "Statusber Settings
 let g:airline#extensions#tabline#left_sep = ' '
@@ -321,3 +314,7 @@ ab :rose: 🌹
 ab :sad: ☹️
 ab :mad: 😤
 ab :purpel_heart: 💜
+
+"See invisible characters
+"Setting background
+highlight! Normal guifg=#BCBEC4 guibg=#1e1f22 ctermfg=145 ctermbg=235

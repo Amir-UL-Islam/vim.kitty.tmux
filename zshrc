@@ -114,3 +114,7 @@ fi
 if [ ! -L ~/.gitconfig ]; then
     ln -s ~/vim.kitty.tmux/.gitconfig ~/.gitconfig
 fi
+
+if [ ! -L ~/.gitattributes ]; then
+    ln -s ~/vim.kitty.tmux/.gitattributes ~/.gitattributes
+fi
