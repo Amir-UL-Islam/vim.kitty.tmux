@@ -56,7 +56,7 @@ COLOR_TIME=$'%f'
 COLOR_DIR=$'%F{197}'
 COLOR_GIT=$'%F{39}'
 setopt PROMPT_SUBST
-export PROMPT='${COLOR_DIR}%~ ${COLOR_TIME}%@:🌱 ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF}❯ '
+export PROMPT='${COLOR_DIR}%~ ${COLOR_TIME}%@:🌱 ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF} ❯ '
 
 alias rm='rm -i'
 alias cp='cp -i'
@@ -117,4 +117,8 @@ fi
 
 if [ ! -L ~/.gitattributes ]; then
     ln -s ~/vim.kitty.tmux/.gitattributes ~/.gitattributes
+fi
+
+if [ ! -L /usr/local/bin/sshh ]; then
+   ln -s ~/vim.kitty.tmux/sshh /usr/local/bin/sshh
 fi
