@@ -1,14 +1,6 @@
-# This Repo Include Dev Env combined with 
-## ```Neovim```, ```kitty```, ```Tmux```
-## Simple and Easy 🥇
+My day job is mostly focused on Java and DevOps in the Unix platform. Therefore most of **zsh, tmux** config focused on servers and Java.
+I have also included [sshh](https://github.com/yudai/sshh) (wonderful tool for ssh reconned) and [git-recover](https://github.com/ethomson/git-recover)(unfortunately does not ship  with git)
 
-[VimAwesome](https://vimawesome.com/)
-[vim-plug](https://github.com/junegunn/vim-plug)
+And use nvim for Quick fixing.
 
-`:source %`
- `:wp`
- `:vi .vimrc`
- `:PlugInstall`
-
-Usefull Commands
-- ```ln -s [source] [/path/filename]```
+I am trying to update my .dotfiles config as plugin-less as possible. If you have any ideas, share your thoughts. 
