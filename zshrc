@@ -122,3 +122,6 @@ fi
 if [ ! -L /usr/local/bin/sshh ]; then
    ln -s ~/vim.kitty.tmux/sshh /usr/local/bin/sshh
 fi
+if [ ! -L /usr/local/bin/git-recover ]; then
+   ln -s ~/vim.kitty.tmux/git-recover /usr/local/bin/git-recover
+fi
